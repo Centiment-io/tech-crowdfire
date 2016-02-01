@@ -586,6 +586,11 @@ var message = 'hello' +
 ### Variable names
 
   - `err` is reserved for errors received via a callback. Use `error` for local function variables
+  
+### Using let
+  - Try to use `let` instead of `var`. let allows you to declare variables that are limited in scope to the block, statement, 
+    or expression on which it is used. This is unlike the var keyword, which defines a variable globally,
+    or locally to an entire function regardless of block scope.  
 
 ### Errors
 
