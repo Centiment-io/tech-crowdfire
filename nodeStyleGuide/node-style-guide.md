@@ -590,7 +590,8 @@ var message = 'hello' +
 ### Using let
   - Try to use `let` instead of `var`. let allows you to declare variables that are limited in scope to the block, statement, 
     or expression on which it is used. This is unlike the var keyword, which defines a variable globally,
-    or locally to an entire function regardless of block scope.  
+    or locally to an entire function regardless of block scope. 
+    let is allowed in ECMAScript 6. and node version 4.2.1. In node let should be used in strict mode
 
 ### Errors
 
