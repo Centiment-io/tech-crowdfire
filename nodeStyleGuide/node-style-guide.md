@@ -618,11 +618,11 @@ var message = 'hello' +
 
 ```javascript
 
-        Module.exports = {
-            method1: method1,
-            method2: method2
-          }
-          
+ Module.exports = {
+   method1: method1,
+   method2: method2
+ }
+
 ```
 ### Mocking for test cases
   - For mocking functions while running test cases `simple-mock` should be used over `rewire` unless
