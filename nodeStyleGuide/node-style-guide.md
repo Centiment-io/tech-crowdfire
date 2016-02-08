@@ -586,6 +586,12 @@ var message = 'hello' +
 ### Variable names
 
   - `err` is reserved for errors received via a callback. Use `error` for local function variables
+  
+### Using let
+  - Try to use `let` instead of `var`. let allows you to declare variables that are limited in scope to the block, statement, 
+    or expression on which it is used. This is unlike the var keyword, which defines a variable globally,
+    or locally to an entire function regardless of block scope. 
+    let is allowed in ECMAScript 6. and node version 4.2.1. In node let should be used in strict mode
 
 ### Errors
 
@@ -605,4 +611,15 @@ var message = 'hello' +
 
   - First argument must always be `err`
   - Callbacks should always be called with explicit `return`
+  
+### Module.exports
+  - All the methods which are to be exported should be assigned to the Module.exports as object
+    e.g.  Module.exports = {
+            method1: method1,
+            method2: method2
+          }
+          
+### Mocking for test cases
+  - For mocking functions while running test cases `simple-mock` should be used over `rewire` unless
+   we want to mock the logical private method, where `simple-mock` will not work.
 
