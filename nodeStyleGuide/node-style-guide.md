@@ -611,4 +611,15 @@ var message = 'hello' +
 
   - First argument must always be `err`
   - Callbacks should always be called with explicit `return`
+  
+### Module.exports
+  - All the methods which are to be exported should be assigned to the Module.exports as object
+    e.g.  Module.exports = {
+            method1: method1,
+            method2: method2
+          }
+          
+### Mocking for test cases
+  - For mocking functions while running test cases `simple-mock` should be used over `rewire` unless
+   we want to mock the logical private method, where `simple-mock` will not work.
 
