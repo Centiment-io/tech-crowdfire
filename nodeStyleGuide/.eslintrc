@@ -109,7 +109,13 @@
     "strict": [
       2,
       "global"
-    ]
+    ],
+    
+    // Dont use var
+    "no-var": 2,
+    
+    // Use const wherever possible
+    "prefer-const": 2
   },
   "ecmaFeatures": {
     "jsx": true,
