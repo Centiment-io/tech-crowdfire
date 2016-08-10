@@ -18,7 +18,10 @@
     // 2-Space Indentation
     "indent": [
       2,
-      2
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
     // Require Curly braces for all control statements
     "curly": 2,
