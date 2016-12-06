@@ -134,6 +134,20 @@ function method() {
 }
 ```
 
+#### Private functions
+  - Use _ before the name of a private function
+```javascript
+// Right
+let _method = function () {
+  //Body of a private function
+}
+
+// Wrong (Only if its a private funciton.)
+let method = function () {
+   
+}
+```
+
 #### Enforcing new on Constructor
 
   - Use this.constructor `===` to check if a constructor function was called with new
