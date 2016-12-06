@@ -138,12 +138,12 @@ function method() {
   - Use _ before the name of a private function
 ```javascript
 // Right
-let _method = function () {
+const _method = function () {
   //Body of a private function
 }
 
 // Wrong (Only if its a private funciton.)
-let method = function () {
+const method = function () {
    
 }
 ```
