@@ -523,47 +523,149 @@ if (value === 'hello'
 
 #### Comments
 
-  - Always use `//` unless it's a jsDoc declaration or license header
-  - Always begin sentences with an upper case
-  - No trailing `.` unless comment contains multiple sentences
-  - Formal style, consistent voice, no humor, present tense
-  - No developer name or other personal notes
-  - No TODOs
+  - [1](#comments--multiline) Use `/** ... */` for multi-line comments.
 
-  - Line
-    - Provides narrative for the following single code line (or single statement broken for readability)
-    - One line of comment only
-    - One empty line before and none after the comment line
-    - No empty line before when following `{` unless other rules require it
+    ```javascript
+    // bad
+    // make() returns a new element
+    // based on the passed in tag name
+    //
+    // @param {String} tag
+    // @return {Element} element
+    function make(tag) {
 
-```javascript
-function execute() {
+      // ...stuff...
 
-  // Initialize state
-  var position = 0
+      return element;
+    }
 
-  if (condition) {
-    // Return message
-    return 'hello'
-  }
-}
-```
+    // good
+    /**
+     * make() returns a new element
+     * based on the passed-in tag name
+     */
+    function make(tag) {
 
-  - Note
-    - Explains the behaviour of a single code statement (can be broken into multiple lines)
-    - Used to document unexpected behaviour or non-standard practice
-    - Appears immediately at the end of the line (or statement) it describes, following whitespace to separate it from code block
+      // ...stuff...
 
-```javascript
-function execute(value) {
+      return element;
+    }
+    ```
+    
+  - [2](#comments--singleline) Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
-  if (value !== null &&
-    value !== undefined) {      // Explicit check as 'value' can be 0
+    ```javascript
+    // bad
+    const active = true;  // is current tab
 
-    console.log(value)
-  }
-}
-```
+    // good
+    // is current tab
+    const active = true;
+
+    // bad
+    function getType() {
+      console.log('fetching type...');
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // good
+    function getType() {
+      console.log('fetching type...');
+
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // also good
+    function getType() {
+      // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+    ```
+
+  - [3](#comments--notes) For a short explanation of code, leave a comment at the end of the line. This explains the behaviour of a single code statement. Use whitespace to separate the comment from the code.
+
+    ```javascript
+    function execute(value) {
+
+      if (value !== null &&
+        value !== undefined) {  // Explicit check as 'value' can be 0
+
+        console.log(value)
+      }
+    }
+    ```
+
+  - [4](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+
+    ```javascript
+    // bad
+    //is current tab
+    const active = true;
+
+    // good
+    // is current tab
+    const active = true;
+
+    // bad
+    /**
+     *make() returns a new element
+     *based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+
+    // good
+    /**
+     * make() returns a new element
+     * based on the passed-in tag name
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+    ```
+
+  - [5](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
+
+  - [6](#comments--fixme) Use `// FIXME:` to annotate problems.
+
+    ```javascript
+    class Calculator extends Abacus {
+      constructor() {
+        super();
+
+        // FIXME: shouldn't use a global here
+        total = 0;
+      }
+    }
+    ```
+    
+  - [7](#comments--todo) Use `// TODO:` to annotate solutions to problems.
+
+    ```javascript
+    class Calculator extends Abacus {
+      constructor() {
+        super();
+
+        // TODO: total should be configurable by an options param
+        this.total = 0;
+      }
+    }
+    ```
 
 #### Multi-line statements
 
